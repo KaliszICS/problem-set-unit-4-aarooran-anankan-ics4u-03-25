@@ -1,10 +1,9 @@
 /**
- * RAWR
+ * Creates a card with a name, suit, and value (to compare worth), that can return the card name and the check if two cards are the same
  * @author Aarooran Anankan
  * @version 1.0
  */
-
-class Card {
+public class Card {
 
     //Instance Variables
     private String name;
@@ -49,7 +48,7 @@ class Card {
 
     @Override
     /**
-     * Returns "Name of Suit"
+     * Returns " "Name" of "Suit" "
      */
     public String toString() {
         return this.name + " of " + this.suit;
@@ -66,7 +65,7 @@ class Card {
         }
         
         Card card = (Card)obj;
-        if(card.getName().equals(this.name) &&&&&) {
+        if(card.getName().equals(this.name) && card.getSuit().equals(this.suit) && card.getValue()==(this.value)) {
             return true;
         }
         

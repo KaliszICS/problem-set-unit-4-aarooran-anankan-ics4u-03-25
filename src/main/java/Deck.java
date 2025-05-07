@@ -1,10 +1,13 @@
+import java.util.*;
+
 /**
- * 
+ * CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+ * @author Aarooran Anankan
+ * @version 1.0
  */
 class Deck {
 
     //Instance Variables
-    private Card card;
     private Card[] deck;
     private String[] suitDefault = new String[] {"Hearts", "Clubs", "Diamonds", "Spades"};
     private String[] nameDefault = new String[] {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
@@ -18,12 +21,13 @@ class Deck {
         this.deck = cardArray;
     }
 
+
     /**
-     * 
+     * Creates an unshuffled deck that acts as the default deck, goes in name order from Ace to King, and suit order from Hearts, Clubs, Diamonds, and Spaces
      */
     public Deck() {
 
-        Card[] unshuffledDeck;
+        Card[] unshuffledDeck = new Card[52];
         int index = 0;
         
         for (int suit=0; suit<=suitDefault.length; suit++) {
@@ -36,5 +40,64 @@ class Deck {
         }
         
         this.deck = unshuffledDeck;
+    }
+
+    /**
+     * Returns the size of the deck
+     * @return
+     */
+    public int size() {
+        return this.deck.length;
+    }
+
+    /**
+     * Returns the card at the top of the deck and reomves it from the deck
+     * @return
+     */
+    public Card draw() {
+
+        if (this.deck.length == 0 || this.deck[0]==null) {
+            return null;
+        }
+
+        Card top = new Card(nameDefault[0], suitDefault[0], valueDefault[0]);
+
+        for (int i=0; i<this.deck.length; i++) {
+            this.deck[i] = this.deck[i+1];
+        }
+
+        return top;
+    }
+
+    /**
+     * Shuffles the deck, rearranging the order of the cards
+     */
+    public void shuffle() {
+        
+        List<Card> shuffling = Arrays.asList(this.deck);
+        Collections.shuffle(shuffling);
+        shuffling.toArray(this.deck);
+    }
+
+    /**
+     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+     * @param card
+     */
+    public void addCard(Card card) {
+
+        if (card!=null) {
+            deck.push(card);
+        }
+    }
+
+    public void reshuffle(Card[] cards) {
+
+        if (card!=null) {
+            deck.push(card);
+        }
+
+        List<Card> shuffling = Arrays.asList(this.deck);
+        Collections.shuffle(shuffling);
+        shuffling.toArray(this.deck);
     }
 }

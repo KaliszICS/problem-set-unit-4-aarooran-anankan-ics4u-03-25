@@ -3,7 +3,7 @@
  * @author Aarooran Anankan
  * @version 1.0
  */
-public class Card {
+class Card {
 
     //Instance Variables
     private String name;
@@ -13,8 +13,8 @@ public class Card {
     /**
      * Constructor that sets the values of the instance variables to that of the parameters
      * @param name The Name of the card
-     * @param suit the Suit of the card
-     * @param value the Value of the card (represents if a card is worth more or less than another)
+     * @param suit The Suit of the card
+     * @param value The Value of the card (represents if a card is worth more or less than another)
      */
     public Card(String name, String suit, int value) {
         this.name = name;
@@ -46,17 +46,17 @@ public class Card {
         return this.value;
     }
 
-    @Override
     /**
      * Returns " "Name" of "Suit" "
+     * @Override
      */
     public String toString() {
         return this.name + " of " + this.suit;
     }
 
-    @Override
     /**
      * Returns true when, false otherwise
+     * @Override
      */
     public boolean equals(Object obj) {
         

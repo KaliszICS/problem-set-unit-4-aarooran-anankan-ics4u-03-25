@@ -74,30 +74,77 @@ class Deck {
      */
     public void shuffle() {
         
-        List<Card> shuffling = Arrays.asList(this.deck);
-        Collections.shuffle(shuffling);
-        shuffling.toArray(this.deck);
-    }
+		Random rand = new Random();
+		
+		for (int i = 0; i < this.deck.length; i++) {
+			
+            int randInd = rand.nextInt(this.deck.length);
 
-    /**
-     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-     * @param card
-     */
+            //swap
+			Card temp = this.deck[randInd];
+			this.deck[randInd] = this.deck[i];
+			this.deck[i] = temp;
+		}
+    }
+    
+     /**
+      * 
+      * @param card
+      */
     public void addCard(Card card) {
 
         if (card!=null) {
-            deck.push(card);
+            
+            Card[] newDeck = new Card[this.deck.length+1];
+            
+            for (int i=0; i<this.deck.length; i++) {
+                newDeck[i] = this.deck[i];
+            }
+
+            newDeck[newDeck.length-1] = card;
+            this.deck=newDeck;
         }
     }
 
+    /**
+     * 
+     * @param cards
+     */
     public void reshuffle(Card[] cards) {
 
-        if (card!=null) {
-            deck.push(card);
+        //Adding Card Array
+        if (cards!=null) {
+            
+            Card[] newDeck = new Card[this.deck.length+cards.length];
+            
+            //Copying this.deck cards to the newDeck
+            for (int i=0; i<=this.deck.length; i++) {
+                if (cards[i]!=null) {
+                    newDeck[i] = this.deck[i];
+                }
+            }
+
+            //Adding the cards in the inputted array into the newDeck
+            for (int i=this.deck.length; i<=newDeck.length; i++) {
+                int index = 0;
+                newDeck[i] = cards[index];
+                index++;
+            }
+
+            this.deck=newDeck;
         }
 
-        List<Card> shuffling = Arrays.asList(this.deck);
-        Collections.shuffle(shuffling);
-        shuffling.toArray(this.deck);
+        //Shuffle
+        Random rand = new Random();
+		
+		for (int i = 0; i < this.deck.length; i++) {
+			
+            int randInd = rand.nextInt(this.deck.length);
+
+            //Swap
+			Card temp = this.deck[randInd];
+			this.deck[randInd] = this.deck[i];
+			this.deck[i] = temp;
+		}
     }
 }

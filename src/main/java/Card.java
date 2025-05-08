@@ -1,5 +1,5 @@
 /**
- * Creates a card with a name, suit, and value (to compare worth), that can return the card name and the check if two cards are the same
+ * Represents a card with a name, suit, and value (to compare worth), that can return the card name and the check if two cards are the same
  * @author Aarooran Anankan
  * @version 1.0
  */
@@ -23,7 +23,7 @@ class Card {
     }
 
     /**
-     * A getter that get's the card's name
+     * A getter that gets the card's name
      * @return
      */
     public String getName() {
@@ -31,7 +31,7 @@ class Card {
     }
 
     /**
-     * A getter that get's the card's suit
+     * A getter that gets the card's suit
      * @return
      */
     public String getSuit() {
@@ -39,7 +39,7 @@ class Card {
     }
 
     /**
-     * A getter that get's the value's name
+     * A getter that gets the value's name
      * @return
      */
     public int getValue() {
@@ -55,7 +55,7 @@ class Card {
     }
 
     /**
-     * Returns true when, false otherwise
+     * Returns true when two cards have the same Name, Suit, and Value, false otherwise
      * @Override
      */
     public boolean equals(Object obj) {

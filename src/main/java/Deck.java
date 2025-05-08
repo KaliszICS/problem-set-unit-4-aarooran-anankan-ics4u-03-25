@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+ * Represents a deck that can either be inputted by the user or creates a default unshuffled deck 
  * @author Aarooran Anankan
  * @version 1.0
  */

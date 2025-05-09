@@ -63,7 +63,6 @@ class DiscardPile {
                 }
             }
 
-            newDiscardPile[newDiscardPile.length-1] = card;
             this.discardPile=newDiscardPile;
 
             return card;

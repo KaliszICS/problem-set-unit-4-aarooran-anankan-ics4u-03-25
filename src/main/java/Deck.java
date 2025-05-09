@@ -88,7 +88,7 @@ class Deck {
     }
     
      /**
-      * 
+      * Adds the provided card into the deck
       * @param card
       */
     public void addCard(Card card) {

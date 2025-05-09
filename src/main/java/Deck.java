@@ -51,7 +51,7 @@ class Deck {
     }
 
     /**
-     * Returns the card at the top of the deck and reomves it from the deck
+     * Returns the card at the top of the deck and removes it from the deck
      * @return
      */
     public Card draw() {

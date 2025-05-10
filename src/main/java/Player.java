@@ -69,12 +69,15 @@ class Player {
         
         if (card!=null && discardPile != null) {
             
-            //Checks if the card is in the hand
+            //Checks if the card is in the hand, if it is, it saves the index
             boolean exists = false;
+            int cardIndex = -1;
             
             for (int i=0; i<this.hand.length; i++) {
                 if (this.hand[i]==card) {
                     exists = true;
+                    cardIndex = i;
+                    i=this.hand.length;
                 }
             }
 
@@ -83,20 +86,22 @@ class Player {
 
                 Card[] newHand = new Card[this.hand.length-1];
             
-                for (int i=0; i<this.hand.length; i++) {
-                
-                    if (this.hand[i]==card) {
-                    }
+                //Copying the array up till the card location
+                for (int i = 0; i < cardIndex; i++) {
+                   newHand[i] = this.hand[i];
+                }
 
-                    else {
-                        newHand[i] = this.hand[i];
-                    }
+                //Copying the array after the card location
+                for (int i=cardIndex+1; i < newHand.length; i++) {
+                    newHand[i-1] = this.hand[i];
                 }
 
                 this.hand=newHand;
 
                 //Adds the discarded card to the discard pile
                 discardPile.addCard(card);
+
+                return true;
             }
 
             //If card doesn't exist in hand, return false
@@ -107,5 +112,67 @@ class Player {
         return false;
     }
 
+    public boolean returnCard(Card card, Deck deck) {
 
+        if (card!=null && deck != null) {
+            
+            //Checks if the card is in the hand, if it is, it saves the index
+            boolean exists = false;
+            int cardIndex = -1;
+            
+            for (int i=0; i<this.hand.length; i++) {
+                if (this.hand[i]==card) {
+                    exists = true;
+                    cardIndex = i;
+                    i=this.hand.length;
+                }
+            }
+
+            //If card exists in hand, discard it from the hand
+            if (exists==true) {
+
+                Card[] newHand = new Card[this.hand.length-1];
+            
+                //Copying the array up till the card location
+                for (int i = 0; i < cardIndex; i++) {
+                   newHand[i] = this.hand[i];
+                }
+
+                //Copying the array after the card location
+                for (int i=cardIndex+1; i < newHand.length; i++) {
+                    newHand[i-1] = this.hand[i];
+                }
+
+                this.hand=newHand;
+
+                //Adds the card to the deck
+                deck.addCard(card);
+
+                return true;
+            }
+
+            //If card doesn't exist in hand, return false
+            else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        
+        String playerHand = this.name + ", " + this.age;
+
+        for (int i=0; i<this.hand.length; i++) {
+            
+            playerHand = playerHand + ", " + hand[i].toString();
+        }
+
+        if (playerHand != "") {
+            playerHand = playerHand + ".";
+        }
+
+        return playerHand;
+    }
 }

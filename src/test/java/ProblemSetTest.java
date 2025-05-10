@@ -18,4 +18,3 @@ public class ProblemSetTest {
       assertEquals("whiskers", cat.getName());
    }
    */
-}

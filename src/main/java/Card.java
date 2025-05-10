@@ -24,7 +24,7 @@ class Card {
 
     /**
      * A getter that gets the card's name
-     * @return
+     * @return The card's name as a String
      */
     public String getName() {
         return this.name;
@@ -32,7 +32,7 @@ class Card {
 
     /**
      * A getter that gets the card's suit
-     * @return
+     * @return The card's suit as a String
      */
     public String getSuit() {
         return this.suit;
@@ -40,7 +40,7 @@ class Card {
 
     /**
      * A getter that gets the value's name
-     * @return
+     * @return The card's value as an int
      */
     public int getValue() {
         return this.value;
@@ -48,16 +48,19 @@ class Card {
 
     /**
      * Returns " "Name" of "Suit" "
-     * @Override
+     * @return A string of the name and suit of the card
      */
+    @Override
     public String toString() {
         return this.name + " of " + this.suit;
     }
 
     /**
      * Returns true when two cards have the same Name, Suit, and Value, false otherwise
-     * @Override
+     * @param obj The object that is used for comparison
+     * @return true (if the two cards are the same), false otherwise
      */
+    @Override
     public boolean equals(Object obj) {
         
         if(obj == null || !obj.getClass().equals(this.getClass())) {

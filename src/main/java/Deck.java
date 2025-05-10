@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * Represents a deck that can either be inputted by the user or creates a default unshuffled deck 
+ * Represents a deck that can either be inputted by the user or creates a default unshuffled deck, with a size, draw, shuffle, addCard, and reshuffle methods
  * @author Aarooran Anankan
  * @version 1.0
  */
@@ -30,12 +30,10 @@ class Deck {
         Card[] unshuffledDeck = new Card[52];
         int index = 0;
         
-        for (int suit=0; suit<=suitDefault.length; suit++) {
-            for (int name=0; name<=nameDefault.length; name++) {
-                for (int value=0; value<=valueDefault.length; value++) {
-                    unshuffledDeck[index]= new Card(nameDefault[name], suitDefault[suit], valueDefault[value]);
+        for (int suit=0; suit<this.suitDefault.length; suit++) {
+            for (int name=0; name<this.nameDefault.length; name++) {
+                    unshuffledDeck[index]= new Card(this.nameDefault[name], this.suitDefault[suit], name+1);
                     index++;
-                }
             }
         }
         
@@ -43,8 +41,8 @@ class Deck {
     }
 
     /**
-     * Returns the size of the deck
-     * @return
+     * Returns the size (amount of cards) of the deck
+     * @return The size (amount of cards) of the deck
      */
     public int size() {
         return this.deck.length;
@@ -52,7 +50,7 @@ class Deck {
 
     /**
      * Returns the card at the top of the deck and removes it from the deck
-     * @return
+     * @return The top card of the deck
      */
     public Card draw() {
 
@@ -60,11 +58,16 @@ class Deck {
             return null;
         }
 
-        Card top = new Card(nameDefault[0], suitDefault[0], valueDefault[0]);
+        //Copies the top card
+        Card top = this.deck[0];
+        Card[] newDeck = new Card[this.deck.length-1];
 
-        for (int i=0; i<this.deck.length; i++) {
-            this.deck[i] = this.deck[i+1];
+        //Moves the other cards in the deck forward
+        for(int i = 0; i < newDeck.length; i++) {
+            newDeck[i] = this.deck[i+1];
         }
+
+        this.deck=newDeck;
 
         return top;
     }
@@ -89,7 +92,7 @@ class Deck {
     
      /**
       * Adds the provided card into the deck
-      * @param card
+      * @param card the card, provided by the user, that is added to the deck
       */
     public void addCard(Card card) {
 
@@ -107,8 +110,8 @@ class Deck {
     }
 
     /**
-     * 
-     * @param cards
+     * Adds the cards in a provided card array into the deck, which is then shuffled
+     * @param cards The card array that is added to the deck
      */
     public void reshuffle(Card[] cards) {
 
@@ -118,14 +121,12 @@ class Deck {
             Card[] newDeck = new Card[this.deck.length+cards.length];
             
             //Copying this.deck cards to the newDeck
-            for (int i=0; i<=this.deck.length; i++) {
-                if (cards[i]!=null) {
+            for (int i=0; i<this.deck.length; i++) {
                     newDeck[i] = this.deck[i];
-                }
             }
 
             //Adding the cards in the inputted array into the newDeck
-            for (int i=this.deck.length; i<=newDeck.length; i++) {
+            for (int i=this.deck.length; i<newDeck.length; i++) {
                 int index = 0;
                 newDeck[i] = cards[index];
                 index++;

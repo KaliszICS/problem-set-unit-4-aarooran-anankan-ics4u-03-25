@@ -1,5 +1,5 @@
 /**
- * 
+ * Represents a player, with a name and an age, and a hand Card array that contains the cards in their ahnd
  * @author Aarooran Anankan
  * @version 1.0
  */
@@ -11,10 +11,10 @@ class Player {
     private Card[] hand = new Card[0];
 
     /**
-     * 
-     * @param name
-     * @param age
-     * @param hand
+     * Creates a player out of the provided name, age, and hand Card array
+     * @param name The name of the player
+     * @param age The age of the player
+     * @param hand The cards in the player's hand
      */
     public Player(String name, int age, Card[] hand) {
         this.name = name;
@@ -23,31 +23,50 @@ class Player {
     }
 
     /**
-     * 
-     * @param name
-     * @param age
+     * Creates a player out of the provided name and age
+     * @param name The name of the player
+     * @param age The age of the player
      */
     public Player(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
+    /**
+     * A getter that gets the player's name
+     * @return The player name
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * A getter that gets the player's age
+     * @return The player age
+     */
     public int getAge() {
         return this.age;
     }
 
+    /**
+     * A getter that gets the cards in the player's hand
+     * @return The cards in the player's hand
+     */
     public Card[] getHand() {
         return this.hand;
     }
 
+    /**
+     * Returns the size of the hand
+     * @return The size of the hand
+     */
     public int size() {
         return this.hand.length;
     }
 
+    /**
+     * A method that adds a card from the deck to the hand of the player
+     */
     public void draw(Deck deck) {
             
         if (deck!=null) {
@@ -65,6 +84,9 @@ class Player {
         }
     }
 
+    /**
+     * 
+     */
     public boolean discardCard(Card card, DiscardPile discardPile) {
         
         if (card!=null && discardPile != null) {

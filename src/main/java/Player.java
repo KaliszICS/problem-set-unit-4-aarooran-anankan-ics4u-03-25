@@ -85,7 +85,7 @@ class Player {
     }
 
     /**
-     * 
+     * Discards card from hand to discard pile
      */
     public boolean discardCard(Card card, DiscardPile discardPile) {
         
@@ -134,6 +134,12 @@ class Player {
         return false;
     }
 
+    /**
+     * Returns the specified card to the deck
+     * @param card The provided card
+     * @param deck The provided deck
+     * @return
+     */
     public boolean returnCard(Card card, Deck deck) {
 
         if (card!=null && deck != null) {

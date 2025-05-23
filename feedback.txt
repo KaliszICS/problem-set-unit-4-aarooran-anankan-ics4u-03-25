@@ -1,0 +1,11 @@
+K(30%): 100
+I(30%): 95
+C(10%): 98
+A(30%): 98
+97.7%
+Do not need if statement for end of equals method.  Just return the condition.
+Would be easier to use ArrayLists for our backend to simplify your code.
+Reuse your shuffle and AddCard in your other methods to make them easier to make (such as reshuffle)
+player draw should not add a null card since that means the deck is empty.
+Don't compare Booleans to other Booleans.  bool==true does nothing and bool==false is the same as !bool.
+player toString Javadoc should be more specific.
